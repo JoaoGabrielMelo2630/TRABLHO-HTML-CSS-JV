@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça a história, a equipe e os valores da cafeteria Grão Dourado.">
+  <meta name="author" content="Trabalho Final de Front-End">
+  <title>Sobre | Grão Dourado</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%236f4e37'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23c8913a' font-family='Georgia'>G</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <!-- auth.js roda ANTES da página aparecer: sem login, vai para o cadastro -->
+  <script src="js/auth.js"></script>
+</head>
+<body>
+
+  <!-- Tela de carregamento: some quando a página termina de carregar -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-anel"></div>
+  </div>
+
+  <!-- Link escondido para quem navega pelo teclado (acessibilidade) -->
+  <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
+
+  <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+  <header class="cabecalho">
+    <div class="barra-progresso" id="barra-progresso"></div>
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Grão Dourado - página inicial">Grão<span>Dourado</span></a>
+
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="acoes-cabecalho">
+        <button class="btn-icone" id="btn-carrinho" aria-label="Abrir carrinho"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="contador-carrinho">0</span></button>
+        <button class="btn-icone btn-menu-mobile" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="conteudo"></div>
+
+  <section class="banner-pagina" style="background-image: linear-gradient(rgba(43,29,20,.78), rgba(43,29,20,.85)), url('https://images.unsplash.com/photo-1521917441209-e886f0404a7b?auto=format&fit=crop&w=1600&q=75')">
+    <div class="container">
+      <nav class="trilha" aria-label="Você está em"><a href="index.html">Início</a> › <span>Sobre</span></nav>
+      <h1>Nossa História</h1>
+      <p>Conheça quem está por trás de cada xícara</p>
+    </div>
+  </section>
+
+  <main>
+    <!-- INTRODUÇÃO -->
+    <section class="secao">
+      <div class="container sobre-intro">
+        <div class="ilustracao revelar">
+          <img class="foto-real" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=75" alt="" loading="lazy" onerror="this.remove()">
+          <div class="selo-anos">10<br><small>anos</small></div>
+        </div>
+        <div class="revelar">
+          <h2>De uma pequena garagem para o coração do bairro</h2>
+          <p>A Grão Dourado nasceu em 2015, quando dois amigos apaixonados por café, Rafael e Juliana, decidiram transformar uma garagem em um espaço para quem ama uma boa xícara.</p>
+          <p>Hoje trabalhamos diretamente com produtores rurais, pagando um preço justo e garantindo grãos de alta qualidade, com rastreabilidade do pé de café até a sua mesa.</p>
+          <ul class="lista-check">
+            <li>Café 100% arábica de origem controlada</li>
+            <li>Torra própria em pequenos lotes</li>
+            <li>Embalagens recicláveis e copos compostáveis</li>
+            <li>Equipe treinada por baristas certificados</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORIGEM DOS GRÃOS (barras) -->
+    <section class="secao">
+      <div class="container origem">
+        <div class="revelar">
+          <h2>De onde vem nosso café</h2>
+          <p>Trabalhamos com 12 fazendas parceiras em 4 regiões produtoras. Cada região dá ao café características diferentes de aroma e sabor.</p>
+          <p class="texto-suave">Porcentagem dos grãos comprados em 2025, por região.</p>
+        </div>
+        <div class="grafico-barras card revelar">
+          <div class="barra-item">
+            <div class="barra-rotulo"><span>Sul de Minas (MG)</span><strong>45%</strong></div>
+            <div class="barra-fundo"><div class="barra-preenchida" data-porcentagem="45"></div></div>
+          </div>
+          <div class="barra-item">
+            <div class="barra-rotulo"><span>Serra da Mantiqueira (MG)</span><strong>25%</strong></div>
+            <div class="barra-fundo"><div class="barra-preenchida" data-porcentagem="25"></div></div>
+          </div>
+          <div class="barra-item">
+            <div class="barra-rotulo"><span>Cerrado Mineiro (MG)</span><strong>18%</strong></div>
+            <div class="barra-fundo"><div class="barra-preenchida" data-porcentagem="18"></div></div>
+          </div>
+          <div class="barra-item">
+            <div class="barra-rotulo"><span>Chapada Diamantina (BA)</span><strong>12%</strong></div>
+            <div class="barra-fundo"><div class="barra-preenchida" data-porcentagem="12"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="secao secao-alternada">
+      <div class="container">
+        <h2 class="titulo-secao revelar">Perguntas frequentes</h2>
+        <p class="subtitulo-secao revelar">Clique em uma pergunta para ver a resposta, ou use a busca.</p>
+        <div class="acordeao revelar">
+          <input type="search" id="busca-faq" class="campo-busca largura-total" placeholder="Buscar uma dúvida... (ex: lactose, wi-fi)">
+          <div class="acordeao-item">
+            <button class="acordeao-pergunta" aria-expanded="false">Vocês têm opções sem lactose?<span class="sinal">+</span></button>
+            <div class="acordeao-resposta"><p>Sim! Temos leite sem lactose e bebidas vegetais de aveia e amêndoa, sem custo adicional.</p></div>
+          </div>
+          <div class="acordeao-item">
+            <button class="acordeao-pergunta" aria-expanded="false">Posso levar meu notebook para estudar?<span class="sinal">+</span></button>
+            <div class="acordeao-resposta"><p>Claro! Temos Wi-Fi gratuito, tomadas em todas as mesas e uma área silenciosa só para estudos.</p></div>
+          </div>
+          <div class="acordeao-item">
+            <button class="acordeao-pergunta" aria-expanded="false">Vocês vendem café em grãos para levar?<span class="sinal">+</span></button>
+            <div class="acordeao-resposta"><p>Vendemos pacotes de 250g e 500g, em grão ou moído na hora para o seu método preferido (prensa francesa, V60, moka...).</p></div>
+          </div>
+          <div class="acordeao-item">
+            <button class="acordeao-pergunta" aria-expanded="false">Aceitam reservas para grupos?<span class="sinal">+</span></button>
+            <div class="acordeao-resposta"><p>Sim, para grupos de 2 a 20 pessoas. Basta escolher "Reserva" no formulário da página de Contato.</p></div>
+          </div>
+          <div class="acordeao-item">
+            <button class="acordeao-pergunta" aria-expanded="false">Quais formas de pagamento vocês aceitam?<span class="sinal">+</span></button>
+            <div class="acordeao-resposta"><p>Aceitamos Pix, cartões de crédito e débito, vale-refeição e dinheiro.</p></div>
+          </div>
+          <div class="acordeao-item">
+            <button class="acordeao-pergunta" aria-expanded="false">Vocês fazem entrega? Qual o valor?<span class="sinal">+</span></button>
+            <div class="acordeao-resposta"><p>Fazemos entregas num raio de 5 km com taxa fixa de R$ 6,00. O tempo médio é de 35 minutos.</p></div>
+          </div>
+          <div class="acordeao-item">
+            <button class="acordeao-pergunta" aria-expanded="false">O espaço é acessível e pet friendly?<span class="sinal">+</span></button>
+            <div class="acordeao-resposta"><p>Sim! Temos rampa de acesso, banheiro adaptado e uma área externa onde pets são muito bem-vindos.</p></div>
+          </div>
+          <p class="sem-resultados" id="faq-vazio">Nenhuma pergunta encontrada. Mande sua dúvida pela página de <a href="contato.html">Contato</a>!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+  <footer class="rodape">
+    <div class="container">
+      <p class="copyright">© <span id="ano-atual"></span> Grão Dourado · Site fictício desenvolvido como Trabalho Final de Front-End (HTML, CSS e JavaScript)</p>
+    </div>
+  </footer>
+
+  <button class="voltar-topo" id="voltar-topo" aria-label="Voltar ao topo">↑</button>
+
+  <!-- Scripts: dados.js primeiro, porque os outros usam os dados dele -->
+  <script src="js/dados.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/sobre.js"></script>
+</body>
+</html>

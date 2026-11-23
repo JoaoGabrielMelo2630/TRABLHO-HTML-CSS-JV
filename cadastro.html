@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crie sua conta ou entre na Grão Dourado para fazer pedidos online.">
+  <title>Entrar ou Cadastrar | Grão Dourado</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%236f4e37'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23c8913a' font-family='Georgia'>G</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <!-- Se a pessoa já estiver logada, auth.js manda direto para o início -->
+  <script src="js/auth.js"></script>
+</head>
+<body class="pagina-auth">
+
+  <main class="auth">
+    <!-- LADO ESQUERDO: foto e apresentação -->
+    <section class="auth-visual">
+      <img class="foto-real" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=75"
+           alt="Interior aconchegante da cafeteria" onerror="this.remove()">
+      <div class="auth-visual-conteudo">
+        <a class="logo logo-claro">Grão<span>Dourado</span></a>
+        <h1>Seu café favorito a um clique de distância.</h1>
+        <ul class="auth-vantagens">
+          <li>Peça online e retire sem fila</li>
+          <li>Salve seus produtos favoritos</li>
+          <li>Ganhe cupons e promoções exclusivas</li>
+          <li>Reserve mesas para grupos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LADO DIREITO: formulários -->
+    <section class="auth-painel">
+      <div class="auth-caixa">
+        <a class="logo auth-logo-mobile">Grão<span>Dourado</span></a>
+
+        <div class="auth-abas" role="tablist">
+          <button class="auth-aba ativo" role="tab" data-alvo="form-cadastro">Criar conta</button>
+          <button class="auth-aba" role="tab" data-alvo="form-login">Entrar</button>
+        </div>
+
+        <!-- ========== CADASTRO ========== -->
+        <form class="auth-form formulario ativo" id="form-cadastro" novalidate>
+          <h2>Crie sua conta</h2>
+          <p class="texto-suave">É rápido e grátis. Leva menos de 1 minuto.</p>
+
+          <div class="grupo">
+            <label for="cad-nome">Nome completo</label>
+            <input type="text" id="cad-nome" placeholder="Ex: Ana Souza" autocomplete="name">
+            <p class="mensagem-erro"></p>
+          </div>
+
+          <div class="grupo">
+            <label for="cad-email">E-mail</label>
+            <input type="email" id="cad-email" placeholder="voce@email.com" autocomplete="email">
+            <p class="mensagem-erro"></p>
+          </div>
+
+          <div class="grupo">
+            <label for="cad-senha">Senha</label>
+            <div class="campo-senha">
+              <input type="password" id="cad-senha" placeholder="8+ caracteres, maiúscula, número e símbolo" autocomplete="new-password">
+              <button type="button" class="ver-senha" data-campo="cad-senha" aria-label="Mostrar senha">Mostrar</button>
+            </div>
+            <div class="forca"><div class="forca-barra" id="forca-barra"></div></div>
+            <p class="forca-texto" id="forca-texto"></p>
+            <p class="mensagem-erro"></p>
+          </div>
+
+          <div class="grupo">
+            <label for="cad-confirmar">Confirmar senha</label>
+            <div class="campo-senha">
+              <input type="password" id="cad-confirmar" placeholder="Repita a senha" autocomplete="new-password">
+              <button type="button" class="ver-senha" data-campo="cad-confirmar" aria-label="Mostrar senha">Mostrar</button>
+            </div>
+            <p class="mensagem-erro"></p>
+          </div>
+
+
+          <button type="submit" class="btn btn-primario largura-total">Criar minha conta</button>
+          <p class="auth-trocar">Já tem conta? <a href="#" data-trocar="form-login">Entrar</a></p>
+        </form>
+
+        <!-- ========== LOGIN ========== -->
+        <form class="auth-form formulario" id="form-login" novalidate>
+          <h2>Bem-vindo de volta! </h2>
+          <p class="texto-suave">Entre com o e-mail e a senha que você cadastrou.</p>
+
+          <div class="grupo">
+            <label for="log-email">E-mail</label>
+            <input type="email" id="log-email" placeholder="voce@email.com" autocomplete="email">
+            <p class="mensagem-erro"></p>
+          </div>
+
+          <div class="grupo">
+            <label for="log-senha">Senha</label>
+            <div class="campo-senha">
+              <input type="password" id="log-senha" placeholder="Sua senha" autocomplete="current-password">
+              <button type="button" class="ver-senha" data-campo="log-senha" aria-label="Mostrar senha">Mostrar</button>
+            </div>
+            <p class="mensagem-erro"></p>
+          </div>
+
+          <div class="linha-login">
+            <label class="lembrar"><input type="checkbox" id="log-lembrar" checked> Lembrar de mim</label>
+            <a href="#" id="esqueci">Esqueci a senha</a>
+          </div>
+
+          <button type="submit" class="btn btn-primario largura-total">Entrar</button>
+          <p class="auth-trocar">Ainda não tem conta? <a href="#" data-trocar="form-cadastro">Criar conta</a></p>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="js/cadastro.js"></script>
+</body>
+</html>

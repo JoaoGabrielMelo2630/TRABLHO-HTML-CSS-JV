@@ -1,0 +1,135 @@
+/* =========================================================
+   GRÃO DOURADO — Tela de cadastro / login
+   ========================================================= */
+
+.pagina-auth { min-height: 100vh; }
+
+.auth {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- Lado da foto ---------- */
+.auth-visual {
+  position: relative;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  padding: 50px;
+  overflow: hidden;
+  /* Fundo de reserva caso a foto não carregue */
+  background: linear-gradient(135deg, #3e2a1e, #6f4e37);
+}
+.auth-visual > .foto-real { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Película escura por cima da foto para o texto ficar legível */
+.auth-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28,18,12,.95) 15%, rgba(28,18,12,.35));
+}
+.auth-visual-conteudo { position: relative; z-index: 1; max-width: 480px; }
+.logo-claro { color: #fff; font-size: 1.6rem; }
+.auth-visual h1 { font-size: 2.5rem; margin: 18px 0 22px; }
+.auth-vantagens { list-style: none; margin-bottom: 30px; }
+.auth-vantagens li { padding: 6px 0 6px 20px; font-size: 1.05rem; opacity: .92; }
+.auth-depoimento {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--raio);
+  padding: 14px 18px;
+}
+.auth-depoimento img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+.auth-depoimento p { font-style: italic; font-size: .95rem; }
+.auth-depoimento small { opacity: .75; font-style: normal; }
+
+/* ---------- Lado do formulário ---------- */
+.auth-painel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: var(--cor-fundo);
+}
+.auth-caixa { width: 100%; max-width: 430px; }
+.auth-logo-mobile { display: none; text-align: center; margin-bottom: 20px; }
+
+.auth-abas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--cor-borda);
+  border-radius: 30px;
+  padding: 4px;
+  margin-bottom: 28px;
+}
+.auth-aba {
+  border: none;
+  background: none;
+  padding: 11px;
+  border-radius: 26px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--cor-texto-suave);
+  transition: all var(--transicao);
+}
+.auth-aba.ativo { background: var(--cor-superficie); color: var(--cor-texto); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+
+.auth-form { display: none; }
+.auth-form.ativo { display: block; animation: aparecer .4s ease; }
+.auth-form h2 { font-size: 1.8rem; margin-bottom: 4px; }
+.auth-form > .texto-suave { margin-bottom: 22px; }
+
+/* Campo de senha com o botão de olho dentro */
+.campo-senha { position: relative; }
+.campo-senha input { padding-right: 80px; }
+.ver-senha {
+  position: absolute;
+  right: 8px; top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Medidor de força da senha */
+.forca { height: 6px; background: var(--cor-borda); border-radius: 3px; margin-top: 10px; overflow: hidden; }
+.forca-barra { height: 100%; width: 0; border-radius: 3px; transition: width .3s ease, background .3s ease; }
+.forca-texto { font-size: .82rem; font-weight: 600; margin-top: 5px; min-height: 1em; color: var(--cor-texto-suave); }
+.requisitos { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; margin-top: 6px; }
+.requisitos li { font-size: .8rem; color: var(--cor-texto-suave); padding-left: 20px; position: relative; transition: color .2s; }
+.requisitos li::before { content: "○"; position: absolute; left: 0; }
+.requisitos li.ok { color: #2e9e5b; }
+.requisitos li.ok::before { content: "✓"; font-weight: bold; }
+
+.linha-login { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: .92rem; }
+.lembrar { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+.lembrar input { accent-color: var(--cor-secundaria); }
+.linha-login a, .auth-trocar a { color: var(--cor-secundaria); font-weight: 600; }
+.linha-login a:hover, .auth-trocar a:hover { text-decoration: underline; }
+
+.auth-trocar { text-align: center; margin-top: 18px; color: var(--cor-texto-suave); }
+.auth-aviso { text-align: center; margin-top: 28px; font-size: .8rem; color: var(--cor-texto-suave); }
+
+/* Animação de erro no login */
+.tremer { animation: tremer .45s ease; }
+@keyframes tremer {
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .auth { grid-template-columns: 1fr; }
+  .auth-visual { display: none; }
+  .auth-logo-mobile { display: block; font-size: 1.6rem; }
+}
